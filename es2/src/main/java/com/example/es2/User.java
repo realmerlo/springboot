@@ -6,9 +6,9 @@ public class User {
 
     private String saluto;
 
-    public User(String nome, String provincia) {
+    public User(String nome, String provincia, String saluto) {
         this.nome = nome;
         this.provincia = provincia;
-        this.saluto = "Ciao " + nome + ", com'è il tempo in " + provincia + " ?";
+        this.saluto = saluto;
     }
 }

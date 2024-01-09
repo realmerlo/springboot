@@ -11,6 +11,8 @@ public class ciao {
             @PathVariable String provincia,
             @RequestParam String nome){
 
-        return new User (nome, provincia);
+        String saluto = "Ciao " + nome + ", com'è il tempo in " + provincia + " ?";
+
+        return new User (nome, provincia, saluto);
     }
 }
