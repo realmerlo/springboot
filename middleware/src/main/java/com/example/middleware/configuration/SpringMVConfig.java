@@ -16,7 +16,7 @@ public class SpringMVConfig implements WebMvcConfigurer {
     private LegacyInterceptor legacyInterceptor;
 
     @Override
-    public void addInterceptors(InterceptorRegistry registry) {        // Ordine degli interceptor
+    public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(apiLoggingInterceptor);
         registry.addInterceptor(legacyInterceptor);
     }
