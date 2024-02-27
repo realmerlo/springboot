@@ -15,7 +15,7 @@ public class FlightService {
     @Autowired
     private FlightRepo flightRepo;
 
-    public void provisionFlights() {
+    public List<Flight> provisionFlights() {
         List<Flight> flights = new ArrayList<>();
         Random random = new Random();
 
@@ -30,6 +30,7 @@ public class FlightService {
 
         flightRepo.saveAllCustom(flights);
         System.out.println("**Volo generati e salvati con successo!**");
+        return flights;
     }
 
     public List<Flight> getAllFlights() {

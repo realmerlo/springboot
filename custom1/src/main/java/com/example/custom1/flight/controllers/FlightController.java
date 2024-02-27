@@ -3,6 +3,7 @@ package com.example.custom1.flight.controllers;
 import com.example.custom1.flight.entities.Flight;
 import com.example.custom1.flight.entities.Status;
 import com.example.custom1.flight.repository.FlightRepo;
+import com.example.custom1.flight.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,21 +19,12 @@ public class FlightController {
     @Autowired
     private FlightRepo flightRepo;
 
+    @Autowired
+    private FlightService flightService;
+
     @GetMapping("/provision")
     public List<Flight> provisionFlights() {
-        List<Flight> flights = new ArrayList<>();
-        Random random = new Random();
-
-        for (int i = 0; i < 50; i++) {
-            Flight flight = new Flight();
-            flight.setDescription("Flight " + i);
-            flight.setFromAirport(generateRandomString());
-            flight.setToAirport(generateRandomString());
-            flight.setStatus(Status.ONTIME);
-            flights.add(flight);
-        }
-
-        return flightRepo.saveAll(flights);
+       return flightService.provisionFlights();
     }
 
     @GetMapping("/getAll")
