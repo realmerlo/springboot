@@ -1,33 +1,21 @@
-spring:
-  profiles:
-    test:
-      active: true
-      include: test
-    prod:
-      include: production
-    default:
-      include: default
----
-environment: production
-spring:
-  config:
-    active:
-      on-profile: prod
-server:
-  port: 7070
----
-environment: test
-spring:
-  config:
-    active:
-      on-profile: test
-server:
-  port: 4000
----
-environment: default
-spring:
-  config:
-    active:
-      on-profile: default
 server:
   port: 5000
+spring:
+  profiles:
+    active: default
+
+---
+
+server:
+  port: 7070
+spring:
+  profiles:
+    active: prod
+
+---
+
+server:
+  port: 4000
+spring:
+  profiles:
+    active: test
