@@ -1,0 +1,43 @@
+profiles:
+  test:
+    active: true
+    include: test
+  prod:
+    include: production
+  default:
+    include: default
+
+---
+environment: production
+spring:
+  config:
+    activate:
+      on-profile: prod
+server:
+  port: 5000
+myCustomVarTree:
+  welcomeMsg: "Hi form prod"
+  enabled: true
+---
+environment: test
+spring:
+  config:
+    activate:
+      on-profile: test
+server:
+  port: 4000
+myCustomVarTree:
+  welcomeMsg: "Hi form test"
+  enabled: true
+
+---
+environment: default
+spring:
+  config:
+    activate:
+      on-profile: default
+server:
+  port: 7070
+myCustomVarTree:
+  welcomeMsg: "Hi form default"
+  enabled: true
